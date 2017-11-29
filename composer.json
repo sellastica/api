@@ -1,0 +1,21 @@
+{
+	"name": "sellastica/api",
+	"homepage": "https://github.com/sellastica/api",
+	"license": "proprietary",
+	"authors": [
+		{
+			"name": "Tomáš Krejčí",
+			"homepage": "http://www.sellastica.com"
+		}
+	],
+	"require": {
+		"php": ">=7.1"
+	},
+	"require-dev": {
+	},
+	"autoload": {
+		"psr-4": {
+			"Sellastica\\Api\\": "src/"
+		}
+	}
+}
