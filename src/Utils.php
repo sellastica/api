@@ -1,9 +1,6 @@
 <?php
 namespace Sellastica\Api;
 
-use Sellastica\Api\Model\EndpointFilter;
-use Sellastica\Core\Collection;
-
 class Utils
 {
 	/**
@@ -29,14 +26,14 @@ class Utils
 	/**
 	 * @param array $candidates
 	 * @param array $entityFilterDefinitions
-	 * @return \Sellastica\Core\Collection
+	 * @return \Sellastica\Core\Model\Collection
 	 */
 	public static function getEndpointFilters(
 		array $candidates,
 		array $entityFilterDefinitions
-	): Collection
+	): \Sellastica\Core\Model\Collection
 	{
-		$filters = new Collection();
+		$filters = new \Sellastica\Core\Model\Collection();
 		$allEntityFilters = self::resolveEndpointFilters($entityFilterDefinitions);
 		$validUrlFilters = array_intersect_key($candidates, $allEntityFilters);
 
