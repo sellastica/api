@@ -1,7 +1,7 @@
 <?php
 namespace Sellastica\Api\Mapping;
 
-use Sellastica\Core\Collection;
+use Sellastica\Core\Model\Collection;
 use Sellastica\Entity\Configuration;
 use Sellastica\Entity\Entity\EntityCollection;
 

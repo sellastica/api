@@ -1,7 +1,6 @@
 <?php
 namespace Sellastica\Api\Mapping;
 
-use Sellastica\Core\Collection;
 use Sellastica\Entity\Configuration;
 use Sellastica\Entity\Entity\EntityCollection;
 
@@ -12,12 +11,12 @@ use Sellastica\Entity\Entity\EntityCollection;
 trait TApiRepository
 {
 	/**
-	 * @param Collection $filters
+	 * @param \Sellastica\Core\Model\Collection $filters
 	 * @param Configuration $configuration
 	 * @return \Sellastica\Entity\Entity\EntityCollection
 	 */
 	public function filterByApiEndpointFilters(
-		Collection $filters,
+		\Sellastica\Core\Model\Collection $filters,
 		Configuration $configuration = null
 	): EntityCollection
 	{
@@ -26,10 +25,10 @@ trait TApiRepository
 	}
 
 	/**
-	 * @param Collection $filters
+	 * @param \Sellastica\Core\Model\Collection $filters
 	 * @return int
 	 */
-	public function findCountByApiEndpointFilters(Collection $filters): int
+	public function findCountByApiEndpointFilters(\Sellastica\Core\Model\Collection $filters): int
 	{
 		return $this->dao->findCountByApiEndpointFilters($filters);
 	}

@@ -1,8 +1,6 @@
 <?php
 namespace Sellastica\Api\Mapping;
 
-use Sellastica\Api\Mapping\TApiRepository;
-use Sellastica\Core\Collection;
 use Sellastica\Entity\Configuration;
 use Sellastica\Entity\Entity\EntityCollection;
 
@@ -15,7 +13,7 @@ trait TApiRepositoryProxy
 	 * {@inheritDoc}
 	 */
 	public function filterByApiEndpointFilters(
-		Collection $filters,
+		\Sellastica\Core\Model\Collection $filters,
 		Configuration $configuration = null
 	): EntityCollection
 	{
@@ -25,7 +23,7 @@ trait TApiRepositoryProxy
 	/**
 	 * {@inheritDoc}
 	 */
-	public function findCountByApiEndpointFilters(Collection $filters): int
+	public function findCountByApiEndpointFilters(\Sellastica\Core\Model\Collection $filters): int
 	{
 		return $this->getRepository()->findCountByApiEndpointFilters($filters);
 	}

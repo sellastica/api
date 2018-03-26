@@ -3,7 +3,7 @@ namespace Sellastica\Api\Mapping;
 
 use Sellastica\Api\Model\EndpointFilter;
 use Sellastica\Api\Exception\InvalidApiParameterException;
-use Sellastica\Core\Collection;
+use Sellastica\Core\Model\Collection;
 use Sellastica\Entity\Configuration;
 use Sellastica\Entity\Exception\StorageException;
 use Sellastica\Utils\Strings;
