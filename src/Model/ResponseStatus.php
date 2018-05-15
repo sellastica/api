@@ -6,6 +6,8 @@ class ResponseStatus
 	/** @var array */
 	private static $statuses = [
 		200 => 'OK',
+		201 => 'Created',
+		204 => 'Removed',
 		400 => 'Bad request',
 		401 => 'Unauthorized request',
 		404 => 'Not found',
@@ -21,6 +23,7 @@ class ResponseStatus
 	private $message;
 	/** @var string */
 	private $descriptions = [];
+
 
 	/**
 	 * @param int $code
@@ -45,6 +48,14 @@ class ResponseStatus
 	}
 
 	/**
+	 * @return bool
+	 */
+	public function isOk(): bool
+	{
+		return $this->code < 300;
+	}
+
+	/**
 	 * @param string $description
 	 */
 	public function addDescription(string $description)
@@ -55,7 +66,7 @@ class ResponseStatus
 	/**
 	 * @return array
 	 */
-	public function toArray()
+	public function toArray(): array
 	{
 		$array = [
 			'code' => $this->code,

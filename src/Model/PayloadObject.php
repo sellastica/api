@@ -74,7 +74,7 @@ abstract class PayloadObject
 	 * @param array $expand
 	 * @return array
 	 */
-	public function toArray(array $fields = [], array $expand = [])
+	public function toArray(array $fields = [], array $expand = []): array
 	{
 		$array = [];
 		foreach ($this->getProperties() as $property) {
@@ -98,6 +98,18 @@ abstract class PayloadObject
 		}
 
 		return $array;
+	}
+
+	/**
+	 * @param array $fields
+	 * @param array $expand
+	 * @return \stdClass
+	 */
+	public function toStdClass(array $fields = [], array $expand = []): \stdClass
+	{
+		return \Nette\Utils\Json::decode(
+			\Nette\Utils\Json::encode($this->toArray($fields, $expand))
+		);
 	}
 
 	/**
