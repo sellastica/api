@@ -67,7 +67,7 @@ trait TApiDibiMapper
 			}
 
 			switch ($filter->getType()) {
-				case EndpointFilter::INT;
+				case EndpointFilter::INT:
 					if (is_numeric($filter->getValue())) {
 						$resource->where(
 							sprintf('%s %s %s', '%n', $filter->getComparator(), '%i'), $column, $filter->getValue() //%n = %i
@@ -87,6 +87,22 @@ trait TApiDibiMapper
 					}
 
 					throw new InvalidApiParameterException($filter->getField(), EndpointFilter::FLOAT);
+
+					break;
+				case EndpointFilter::BOOL:
+					switch ($filter->getValue()) {
+						case 'false':
+							$value = false;
+							break;
+						default:
+							$value = (bool)$filter->getValue();
+							break;
+					}
+
+					$resource->where(
+						sprintf('%s = %s', '%n', '%i'), $column, $value //%n = %i
+					);
+					continue;
 
 					break;
 				case EndpointFilter::STRING:

@@ -7,7 +7,8 @@ class EndpointFilter
 {
 	const INT = 'int',
 		FLOAT = 'float',
-		STRING = 'string';
+		STRING = 'string',
+		BOOL = 'bool';
 
 	/** @var string */
 	private $field;
@@ -17,6 +18,7 @@ class EndpointFilter
 	private $type;
 	/** @var string */
 	private $comparator;
+
 
 	/**
 	 * @param string $field
@@ -48,7 +50,7 @@ class EndpointFilter
 	}
 
 	/**
-	 * @return float|int|string
+	 * @return float|int|string|bool
 	 */
 	public function getValue()
 	{
@@ -76,7 +78,7 @@ class EndpointFilter
 	 */
 	private function assertType(string $type)
 	{
-		if (!in_array($type, [self::INT, self::FLOAT, self::STRING])) {
+		if (!in_array($type, [self::INT, self::FLOAT, self::STRING, self::BOOL])) {
 			throw new \InvalidArgumentException(sprintf('Invalid type "%s"', $type));
 		}
 	}
