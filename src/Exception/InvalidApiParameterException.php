@@ -2,7 +2,6 @@
 namespace Sellastica\Api\Exception;
 
 use Nette;
-use Sellastica\Api\Exception\ApiException;
 
 class InvalidApiParameterException extends ApiException
 {
